@@ -2,7 +2,7 @@
 $(document).ready(function() {
     const words = [
         "Fishrot", "Windhoek Lager", "Tafel Lager", "Kapana", "Fat Cakes", "Ohole",
-        "The Dogg", "King TeeDee", "Sam Nujoma", "Namib Desert", "Etosha",
+        "The Dogg", "King TeeDee", "Namib Desert", "Etosha",
         "Fish River Canyon", "Skeleton Coast", "Spitzkoppe", "Quiver Tree", "Oshakati",
         "Herero Dress", "Himba Women", "Bushmen", "NAMAs", "Ricardo Mannetti",
         "Brave Warriors", "Independence Day", "March 21", "Mealie Pap", "Matangara", "Donkey Festival",
@@ -12,10 +12,15 @@ $(document).ready(function() {
         "Deadvlei", "Epupa Falls", "Kolmanskop", "Otjikoto Lake", "Hoba Meteorite",
         "Sam Shivute", "Air Namibia", "Ongwediva Trade Fair", "Hage Geingob", "Land of the Brave",
         "NBC", "Namibian Sun", "Road Fund Administration", "TransNamib", "Sunburn",
-        "Sandwich Harbour", "Desert Adapted Elephants", "Windhoek Showgrounds", "Okavango Delta",
-        "Gondwana Lodges", "Safari", "NamibRand Nature Reserve", "Katutura", "Namport",
+        "Sandwich Harbour", "Desert Elephants","Desert Lion", "Windhoek Showgrounds", "Okavango Delta",
+        "Gondwana Lodges", "Safari",  "Katutura", "Namport",
         "Old Mutual", "NAMDEB", "Rundu", "African Time", "Chula Chula", "Mahangu", "Oshiwambo", "Damara Punch",
-        "Friendly People", "Fat Cakes Vendor", "Sacky Shanghala", "Namibian Dollar", "Okavango River", "African Stars", "Mjolo", "Ke December", "Samuel Nujoma", "Swakop"
+        "Sacky Shanghala", "Namibian Dollar", "Okavango River", "African Stars", "Mjolo", "Ke December", "Samuel Nujoma", "Swakop", "Pirate Ship", "Chief Hendrik Witbooi",
+        "Frankie Fredericks", "Welwitschia", "Amapiano", "Oshiwambo Wedding","Oviritje Music", "Braai Master", "Rooibos Tea", "Mopane Worms",
+        "Dankie Brewery", "Eeh-wa!", "Jou Lekker Ding", "Hosea Kutako", "Harry Simon", "Ninja", "Jacques Burger", "Tswazis", "Eagle FM", "Telecom Namibia",
+        "MTC", "Paratus", "Desert Dash", "Yango", "Tap-A-Meal", "InDrive", "Dankie Botswana" , "Waterberg Plateau", "Donkey Stew" , "LEFA", "Namlish",
+        "Brah", "Dumela", "Pavement Special", "Pitbull", 
+
     ];
     
 
@@ -109,21 +114,21 @@ $(document).ready(function() {
         }, 500);
     }
 
-    function detectBrowser() {
-        const userAgent = navigator.userAgent;
-        let browserName;
+    // function detectBrowser() {
+    //     const userAgent = navigator.userAgent;
+    //     let browserName;
 
-      if (userAgent.includes("Safari") && !userAgent.includes("Chrome")) {
-            browserName = "Safari";
-            $('#browser').modal('show');
-        } else if (userAgent.includes("Trident") || userAgent.includes("MSIE")) {
-            browserName = "Internet Explorer";
-        } else {
-            browserName = "Unknown browser";
-        }
+    //   if (userAgent.includes("Safari") && !userAgent.includes("Chrome")) {
+    //         browserName = "Safari";
+    //         $('#browser').modal('show');
+    //     } else if (userAgent.includes("Trident") || userAgent.includes("MSIE")) {
+    //         browserName = "Internet Explorer";
+    //     } else {
+    //         browserName = "Unknown browser";
+    //     }
 
-        return browserName;
-    }
+    //     return browserName;
+    // }
 
     // Event Handlers
     $('#generateCardsBtn').on('click', generateNewCard);
@@ -140,5 +145,5 @@ $(document).ready(function() {
     });
 
     // Log browser info on load
-    console.log(`You are using: ${detectBrowser()}`);
+    // console.log(`You are using: ${detectBrowser()}`);
 });
