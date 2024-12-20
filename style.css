@@ -1,0 +1,151 @@
+/* style.css */
+.game-container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f9c46b, #e76f51);
+    padding: 2rem;
+}
+
+.card-container {
+    perspective: 1000px;
+    margin: 20px auto;
+    width: 300px;
+    height: 400px;
+}
+
+.card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    cursor: pointer;
+    box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+    border-radius: 15px;
+}
+
+    .card.flipped {
+        transform: rotateY(180deg);
+    }
+
+.card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.card-front {
+    background: linear-gradient(45deg, #264653, #2a9d8f);
+    color: white;
+}
+
+.card-back {
+    background: white;
+    transform: rotateY(180deg);
+}
+
+.word-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.word-item {
+    padding: 10px;
+    margin: 5px 0;
+    background: rgba(255,255,255,0.1);
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1.2em;
+    transition: all 0.3s ease;
+}
+
+    .word-item:hover {
+        transform: translateX(10px);
+        background: rgba(255,255,255,0.2);
+    }
+
+.timer {
+    font-size: 3em;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    margin: 20px 0;
+}
+
+.btn-generate {
+    background: #e76f51;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+    .btn-generate:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 7px 20px rgba(0,0,0,0.3);
+    }
+
+.game-title {
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    margin-bottom: 30px;
+}
+
+
+
+.card-container {
+    animation: cardAppear 0.5s ease-out;
+}
+ /* Add some extra visual flair to the page */
+ .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+/* Flag styling */
+.flag-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+     
+}
+
+/* Flag image styling */
+.flag-image {
+    max-width: 40px; 
+    height: auto;
+    margin-right:10px;
+}
+
+
+.card-title {
+    color: #0074d9; /* Namibian blue */
+}
+
+.list-group-item {
+    background-color: #f4f4f4;
+}
+
+    .list-group-item:nth-child(odd) {
+        background-color: #fff;
+    }
+
+    .list-group-item:hover {
+        background-color: #eeeeee;
+    }
