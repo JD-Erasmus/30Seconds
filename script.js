@@ -89,6 +89,7 @@ function startTimer(durationInSeconds) {
         remainingTime--;
         if (remainingTime <= 0) {
             clearInterval(timerInterval);
+
             timerDisplay.textContent = "Time's up!";
             card.classList.add('flipped'); // Ensure card stays flipped
             setTimeout(() => {
@@ -125,3 +126,27 @@ function generateNewCard() {
 
 document.getElementById("generateCardsBtn").addEventListener("click", generateNewCard);
 // card.addEventListener('click', flipCard);
+// i wanna see the brpwer the user is using 
+function detectBrowser() {
+    const userAgent = navigator.userAgent;
+    let browserName;
+
+    if (userAgent.includes("Firefox")) {
+        browserName = "Mozilla Firefox";
+    } else if (userAgent.includes("Edg")) {
+        browserName = "Microsoft Edge";
+    } else if (userAgent.includes("Chrome") && !userAgent.includes("Edg")) {
+        browserName = "Google Chrome";
+    } else if (userAgent.includes("Safari") && !userAgent.includes("Chrome")) {
+        browserName = "Safari";
+        $('#browser').modal('show');
+    } else if (userAgent.includes("Trident") || userAgent.includes("MSIE")) {
+        browserName = "Internet Explorer";
+    } else {
+        browserName = "Unknown browser";
+    }
+
+    return browserName;
+}
+
+console.log(`You are using: ${detectBrowser()}`);
