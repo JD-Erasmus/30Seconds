@@ -2,7 +2,7 @@
 .game-container {
     min-height: 100vh;
     background: linear-gradient(135deg, #f9c46b, #e76f51);
-    padding: 2rem;
+    padding: 5px;
 }
 
 .card-container {
