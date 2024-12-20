@@ -124,4 +124,4 @@ function generateNewCard() {
 }
 
 document.getElementById("generateCardsBtn").addEventListener("click", generateNewCard);
-card.addEventListener('click', flipCard);
+// card.addEventListener('click', flipCard);
