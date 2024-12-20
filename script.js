@@ -26,7 +26,6 @@ $(document).ready(function() {
 
     let usedWords = new Set();
     let timerInterval;
-    let isPlaying = false;
     const timeUpSound = new Audio('./assets/Sound-Effect.mp3');
     timeUpSound.load(); 
     
