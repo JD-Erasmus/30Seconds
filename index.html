@@ -25,29 +25,31 @@
             </div>
         </div>
     </div>
-    <div class="modal fade" id="browser" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle">
+    <div class="modal fade" id="browser" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" data-bs-backdrop="static">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-body text-center">
-                    <h6>This game is not suppoerted in this browser</h6>
+                    <h6>This game is not supported in this browser</h6>
+                    <p>This game plays best on Microsoft Edge and Goolge Chrome</p>
                 </div>
                 <div class="modal-footer">
                
-                    <button type="button" id="restart" class="btn w-100 btn-outline-primary">Close</button>
                 </div>
             </div>
         </div>
     </div>
     <!-- Game Content -->
     <div class="game-container text-center">
-        <h1 class="game-title display-4">30 Seconds Namibia Style</h1>
-        <button id="generateCardsBtn" class="btn-generate btn btn-primary mb-3">New Card</button>
+        <h1 class="game-title display-4">30 Seconds</h1>
+        <h4 class="game-title display-7 mb-3">Namibia Style</h4>
+        <div class="text-center">
+            <button id="generateCardsBtn" class="btn-generate btn btn-primary mb-3">New Card</button>
+        </div>
         <div id="timerDisplay" class="timer"></div>
         <div id="cardsContainer" class="card-container">
             <div class="card">
                 <div class="card-face card-front">
-                    <h2>30 Seconds</h2> 
-                    <p>Click to reveal words</p>
+                    <h2>30 Seconds</h2>
                 </div>
                 <div class="card-face card-back">
                     <ul class="word-list" id="wordList"></ul>
