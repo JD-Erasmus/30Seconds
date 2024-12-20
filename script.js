@@ -65,8 +65,8 @@ function flipCard() {
 document.getElementById("ends").addEventListener("click", function() {
     $('#exampleModalCenter').modal('hide');
     // Reset timer display
-    document.getElementById("timerDisplay").textContent = "";
-    card.classList.remove('flipped');
+    // document.getElementById("timerDisplay").textContent = "";
+    // card.classList.remove('flipped');
 });
 
 document.getElementById("restart").addEventListener("click", function() {
