@@ -113,21 +113,27 @@ $(document).ready(function() {
         }, 500);
     }
 
-    // function detectBrowser() {
-    //     const userAgent = navigator.userAgent;
-    //     let browserName;
+    function detectBrowser() {
+        const userAgent = navigator.userAgent.toLowerCase();
+        let browserName;
 
-    //   if (userAgent.includes("Safari") && !userAgent.includes("Chrome")) {
-    //         browserName = "Safari";
-    //         $('#browser').modal('show');
-    //     } else if (userAgent.includes("Trident") || userAgent.includes("MSIE")) {
-    //         browserName = "Internet Explorer";
-    //     } else {
-    //         browserName = "Unknown browser";
-    //     }
+      if (userAgent.includes("Safari") && !userAgent.includes("Chrome")) {
+            browserName = "Safari";
+            $('#browser').modal('show');
+        } 
+        else if (userAgent.includes("Trident") || userAgent.includes("MSIE")) {
+            browserName = "Internet Explorer";
+            $('#browser').modal('show');
+        } 
+        else if (userAgent.includes("edg/")) {
+            browserName = "Microsoft Edge";
+        }
+        else {
+            browserName = "Unknown browser";
+        }
 
-    //     return browserName;
-    // }
+        return browserName;
+    }
 
     // Event Handlers
     $('#generateCardsBtn').on('click', generateNewCard);
@@ -144,5 +150,5 @@ $(document).ready(function() {
     });
 
     // Log browser info on load
-    // console.log(`You are using: ${detectBrowser()}`);
+    console.log(`You are using: ${detectBrowser()}`);
 });
