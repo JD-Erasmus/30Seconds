@@ -74,6 +74,8 @@ document.getElementById("restart").addEventListener("click", function() {
     generateNewCard();
 });
 
+const timeUpSound = new Audio('./assets/Sound-Effect.mp3');
+
 function startTimer(durationInSeconds) {
     const timerDisplay = document.getElementById("timerDisplay");
     let remainingTime = durationInSeconds;
@@ -89,9 +91,14 @@ function startTimer(durationInSeconds) {
         remainingTime--;
         if (remainingTime <= 0) {
             clearInterval(timerInterval);
-
             timerDisplay.textContent = "Time's up!";
             card.classList.add('flipped'); // Ensure card stays flipped
+            
+            // Play the sound
+            timeUpSound.play().catch(error => {
+                console.error("Error playing sound:", error);
+            });
+            
             setTimeout(() => {
                 $('#exampleModalCenter').modal('show');
             }, 500);
