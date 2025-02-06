@@ -6,7 +6,7 @@ $(document).ready(function() {
         "Fish River Canyon", "Skeleton Coast", "Spitzkoppe", "Quiver Tree", "Oshakati",
         "Herero Dress", "Himba Women", "Bushmen", "NAMAs", "Ricardo Mannetti",
         "Brave Warriors", "Independence Day", "March 21", "Mealie Pap", "Matangara", "Donkey Festival",
-        "Oshikundu", "Biltong", "Droëwors", "Meatco", "Bank Windhoek",
+        "Oshikundu", "Biltong", "Droëwors", "Meatco", "Bank Windhoek", "FNB", "Standard Bank",
         "German Colonial Rule", "Caprivi Strip", "UNAM", "NUST", "Okahandja", "Swapo", "Nxa", "Sharp", "Aweh",
         "Gobabis", "Namib Wild Horses", "Oryx", "Springbok", "Dune 45", "Taxi",
         "Deadvlei", "Epupa Falls", "Kolmanskop", "Otjikoto Lake", "Hoba Meteorite",
@@ -19,7 +19,7 @@ $(document).ready(function() {
         "Frankie Fredericks", "Welwitschia", "Amapiano", "Oshiwambo Wedding","Oviritje Music", "Braai Master", "Rooibos Tea", "Mopane Worms",
         "Dankie Brewery", "Eeh-wa!", "Jou Lekker Ding", "Hosea Kutako", "Harry Simon", "Ninja", "Jacques Burger", "Tswazis", "Eagle FM", "Telecom Namibia",
         "MTC", "Paratus", "Desert Dash", "Yango", "Tap-A-Meal", "InDrive", "Dankie Botswana" , "Waterberg Plateau", "Donkey Stew" , "LEFA", "Namlish",
-        "Brah", "Dumela", "Pavement Special", "Pitbull", 
+        "Brah", "Dumela", "Pavement Special", "Pitbull", "Brewers Market"
 
     ];
     
