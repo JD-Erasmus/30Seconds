@@ -27,7 +27,7 @@ $(document).ready(function() {
     let usedWords = new Set();
     let timerInterval;
     const timeUpSound = new Audio('./assets/Sound-Effect.mp3');
-    timeUpSound.load(); 
+    // timeUpSound.load(); 
     
     function shuffle(array) {
         for (let i = array.length - 1; i > 0; i--) {
@@ -71,6 +71,9 @@ $(document).ready(function() {
             remainingTime--;
             if (remainingTime <= 0) {
                 clearInterval(timerInterval);
+
+                timeUpSound.preload = 'auto'; // Preloads the audio file
+
                 
                 // Execute all end-game actions simultaneously
                 Promise.all([
