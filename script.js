@@ -2,7 +2,7 @@
 $(document).ready(function() {
     const words = [
         "Fishrot", "Windhoek Lager", "Tafel Lager", "Kapana", "Fat Cakes", "Ohole",
-        "The Dogg", "King TeeDee", "Namib Desert", "Etosha",
+         "King TeeDee", "Namib Desert", "Etosha National Park",
         "Fish River Canyon", "Skeleton Coast", "Spitzkoppe", "Quiver Tree", "Oshakati",
         "Herero Dress", "Himba Women", "Bushmen", "NAMAs", "Ricardo Mannetti",
         "Brave Warriors", "Independence Day", "March 21", "Mealie Pap", "Matangara", "Donkey Festival",
@@ -15,11 +15,14 @@ $(document).ready(function() {
         "Sandwich Harbour", "Desert Elephants","Desert Lion", "Windhoek Showgrounds", "Okavango Delta",
         "Gondwana Lodges", "Safari",  "Katutura", "Namport",
         "Old Mutual", "NAMDEB", "Rundu", "African Time", "Chula Chula", "Mahangu", "Oshiwambo", "Damara Punch",
-        "Sacky Shanghala", "Namibian Dollar", "Okavango River", "African Stars", "Mjolo", "Ke December", "Samuel Nujoma", "Swakop", "Pirate Ship", "Chief Hendrik Witbooi",
+        "Sacky Shanghala", "Namibian Dollar", "Okavango River", "African Stars", "Mjolo", "Ke December", "Samuel Nujoma", "Pirate Ship", "Chief Hendrik Witbooi",
         "Frankie Fredericks", "Welwitschia", "Amapiano", "Oshiwambo Wedding","Oviritje Music", "Braai Master", "Rooibos Tea", "Mopane Worms",
         "Dankie Brewery", "Eeh-wa!", "Jou Lekker Ding", "Hosea Kutako", "Harry Simon", "Ninja", "Jacques Burger", "Tswazis", "Eagle FM", "Telecom Namibia",
         "MTC", "Paratus", "Desert Dash", "Yango", "Tap-A-Meal", "InDrive", "Dankie Botswana" , "Waterberg Plateau", "Donkey Stew" , "LEFA", "Namlish",
-        "Brah", "Dumela", "Pavement Special", "Pitbull", "Brewers Market"
+        "Brah", "Dumela", "Pavement Special", "Pitbull", "Brewers Market","Lüderitz"
+        , "Walvis Bay","Swakopmund","Sossusvlei","Ombike", "Oshifima" ,"Camelthorn tree", "Gazza", "Angel Fish","Collin Benjamin",
+        "Michelle McLean","Hosea Kutako","Clemens Kapuuo","Vogelstrausskluft Lodge","Langstrand","Sandfontein Lodge","Hochland","Witkop","Lekkerwater"
+
 
     ];
     
@@ -79,7 +82,8 @@ $(document).ready(function() {
                 Promise.all([
                     timeUpSound.play(),
                     $('#timerDisplay').text("Time's up!"),
-                    $('.card').removeClass('flipped')
+                    // this flips the card right after the user played, but i think its best to keep incase they want to show the options they had before the game ended 
+                    // $('.card').removeClass('flipped')
 
                     // $('.card').addClass('flipped')
                 ]).catch(error => {
