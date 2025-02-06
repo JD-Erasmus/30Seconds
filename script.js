@@ -76,7 +76,9 @@ $(document).ready(function() {
                 Promise.all([
                     timeUpSound.play(),
                     $('#timerDisplay').text("Time's up!"),
-                    $('.card').addClass('flipped')
+                    $('.card').removeClass('flipped')
+
+                    // $('.card').addClass('flipped')
                 ]).catch(error => {
                     console.error("Error during end game:", error);
                 });
