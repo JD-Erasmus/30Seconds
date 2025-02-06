@@ -143,3 +143,11 @@
     .list-group-item:hover {
         background-color: #eeeeee;
     }
+
+    .twitterbtn:hover
+    {
+            /* Remove hover styles by setting them to their initial state or none */
+    background-color: transparent !important;
+    border-color: #343a40 !important; /* If you want to keep the border color unchanged */
+    color: inherit !important; /* Keep text color the same */
+    }
