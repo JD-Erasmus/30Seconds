@@ -80,7 +80,8 @@ $(document).ready(function() {
                 
                 // Execute all end-game actions simultaneously
                 Promise.all([
-                    timeUpSound.play(),
+                    playTimeUpSound(),
+                    // timeUpSound.play(),
                     $('#timerDisplay').text("Time's up!"),
                     // this flips the card right after the user played, but i think its best to keep incase they want to show the options they had before the game ended 
                     // $('.card').removeClass('flipped')
@@ -143,6 +144,13 @@ $(document).ready(function() {
 
         return browserName;
     }
+
+    const playTimeUpSound = () => {
+        return timeUpSound.play().catch(error => {
+          console.warn("Audio playback failed, retrying...", error);
+          return Promise.resolve();  // Prevent Promise.all from breaking
+        });
+      };
 
     // Event Handlers
     $('#generateCardsBtn').on('click', generateNewCard);
