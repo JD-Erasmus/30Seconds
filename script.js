@@ -77,19 +77,20 @@ $(document).ready(function() {
 
                 timeUpSound.preload = 'auto'; // Preloads the audio file
 
-                
-                // Execute all end-game actions simultaneously
-                Promise.all([
-                    playTimeUpSound(),
-                    // timeUpSound.play(),
-                    $('#timerDisplay').text("Time's up!"),
-                    // this flips the card right after the user played, but i think its best to keep incase they want to show the options they had before the game ended 
-                    // $('.card').removeClass('flipped')
+                timeUpSound.play();
+                $('#timerDisplay').text("Time's up!");
+                // // Execute all end-game actions simultaneously
+                // Promise.all([
+                //     playTimeUpSound(),
+                //     // timeUpSound.play(),
+                //     $('#timerDisplay').text("Time's up!"),
+                //     // this flips the card right after the user played, but i think its best to keep incase they want to show the options they had before the game ended 
+                //     // $('.card').removeClass('flipped')
 
-                    // $('.card').addClass('flipped')
-                ]).catch(error => {
-                    console.error("Error during end game:", error);
-                });
+                //     // $('.card').addClass('flipped')
+                // ]).catch(error => {
+                //     console.error("Error during end game:", error);
+                // });
                 
                 // Show modal after a short delay
                 setTimeout(() => {
