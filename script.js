@@ -170,3 +170,43 @@ $(document).ready(function() {
     // Log browser info on load
     console.log(`You are using: ${detectBrowser()}`);
 });
+
+
+
+
+// $(document).ready(function(){
+//     const audio = document.getElementsByClassName('audio');
+//     const startButton = document.getElementsByClassName('startButton');
+    
+//     startButton.addEventListener('click', () => {
+//         console.log("the button was clicked ")
+//       // Play and immediately pause a silent audio file to unlock audio
+//       audio.play().then(() => {
+//         audio.pause();
+//         audio.currentTime = 0;
+    
+//         // Start your game logic here
+//         // setTimeout(() => {
+//         //   audio.play(); // Play the sound after 30 seconds
+//         // }, 30000);
+//       });
+//     });
+    
+
+// });
+
+
+$(document).ready(function() {
+    // Select all elements with the class 'startButton'
+    var startButtons = $('.startButton');
+
+    // Check if any elements were found
+    if (startButtons.length > 0) {
+        // Attach a click event listener to all selected elements
+        startButtons.on('click', function() {
+            console.log("Start button clicked!");
+        });
+    } else {
+        console.error("No elements with class 'startButton' were found.");
+    }
+});
