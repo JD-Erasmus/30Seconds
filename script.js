@@ -1,8 +1,8 @@
 // script.js
-$(document).ready(function() {
+$(document).ready(function () {
     const words = [
         "Fishrot", "Windhoek Lager", "Tafel Lager", "Kapana", "Fat Cakes", "Ohole",
-         "King TeeDee", "Namib Desert", "Etosha National Park",
+        "King TeeDee", "Namib Desert", "Etosha National Park",
         "Fish River Canyon", "Skeleton Coast", "Spitzkoppe", "Quiver Tree", "Oshakati",
         "Herero Dress", "Himba Women", "Bushmen", "NAMAs", "Ricardo Mannetti",
         "Brave Warriors", "Independence Day", "March 21", "Mealie Pap", "Matangara", "Donkey Festival",
@@ -12,26 +12,26 @@ $(document).ready(function() {
         "Deadvlei", "Epupa Falls", "Kolmanskop", "Otjikoto Lake", "Hoba Meteorite",
         "Sam Shivute", "Air Namibia", "Ongwediva Trade Fair", "Hage Geingob", "Land of the Brave",
         "NBC", "Namibian Sun", "Road Fund Administration", "TransNamib", "Sunburn",
-        "Sandwich Harbour", "Desert Elephants","Desert Lion", "Windhoek Showgrounds", "Okavango Delta",
-        "Gondwana Lodges", "Safari",  "Katutura", "Namport",
+        "Sandwich Harbour", "Desert Elephants", "Desert Lion", "Windhoek Showgrounds", "Okavango Delta",
+        "Gondwana Lodges", "Safari", "Katutura", "Namport",
         "Old Mutual", "NAMDEB", "Rundu", "African Time", "Chula Chula", "Mahangu", "Oshiwambo", "Damara Punch",
         "Sacky Shanghala", "Namibian Dollar", "Okavango River", "African Stars", "Mjolo", "Ke December", "Samuel Nujoma", "Pirate Ship", "Chief Hendrik Witbooi",
-        "Frankie Fredericks", "Welwitschia", "Amapiano", "Oshiwambo Wedding","Oviritje Music", "Braai Master", "Rooibos Tea", "Mopane Worms",
+        "Frankie Fredericks", "Welwitschia", "Amapiano", "Oshiwambo Wedding", "Oviritje Music", "Braai Master", "Rooibos Tea", "Mopane Worms",
         "Dankie Brewery", "Eeh-wa!", "Jou Lekker Ding", "Hosea Kutako", "Harry Simon", "Ninja", "Jacques Burger", "Tswazis", "Eagle FM", "Telecom Namibia",
-        "MTC", "Paratus", "Desert Dash", "Yango", "Tap-A-Meal", "InDrive", "Dankie Botswana" , "Waterberg Plateau", "Donkey Stew" , "LEFA", "Namlish",
-        "Brah", "Dumela", "Pavement Special", "Pitbull", "Brewers Market","Lüderitz"
-        , "Walvis Bay","Swakopmund","Sossusvlei","Ombike", "Oshifima" ,"Camelthorn tree", "Gazza", "Angel Fish","Collin Benjamin",
-        "Michelle McLean","Hosea Kutako","Clemens Kapuuo","Vogelstrausskluft Lodge","Langstrand","Sandfontein Lodge","Hochland","Witkop","Lekkerwater"
+        "MTC", "Paratus", "Desert Dash", "Yango", "Tap-A-Meal", "InDrive", "Dankie Botswana", "Waterberg Plateau", "Donkey Stew", "LEFA", "Namlish",
+        "Brah", "Dumela", "Pavement Special", "Pitbull", "Brewers Market", "Lüderitz"
+        , "Walvis Bay", "Swakopmund", "Sossusvlei", "Ombike", "Oshifima", "Camelthorn tree", "Gazza", "Angel Fish", "Collin Benjamin",
+        "Michelle McLean", "Hosea Kutako", "Clemens Kapuuo", "Vogelstrausskluft Lodge", "Langstrand", "Sandfontein Lodge", "Hochland", "Witkop", "Lekkerwater"
 
 
     ];
-    
+
 
     let usedWords = new Set();
     let timerInterval;
     var timeUpSound = new Audio('./assets/Sound-Effect.mp3');
-    timeUpSound.load(); 
-    
+    timeUpSound.load();
+
     function shuffle(array) {
         for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
@@ -42,17 +42,17 @@ $(document).ready(function() {
     function getNamibianCards() {
         try {
             const availableWords = words.filter(word => !usedWords.has(word));
-            
+
             if (availableWords.length < 5) {
                 usedWords.clear();
             }
-            
+
             const shuffledWords = [...availableWords];
             shuffle(shuffledWords);
-            
+
             const selectedWords = shuffledWords.slice(0, 5);
             selectedWords.forEach(word => usedWords.add(word));
-            
+
             return [selectedWords];
         } catch (error) {
             console.error("An error occurred:", error);
@@ -62,14 +62,14 @@ $(document).ready(function() {
 
     function startTimer(durationInSeconds) {
         $('#generateCardsBtn').hide();
-        
+
         if (timerInterval) {
             clearInterval(timerInterval);
         }
-        
+
         let remainingTime = durationInSeconds;
         $('#timerDisplay').text(remainingTime);
-        
+
         timerInterval = setInterval(() => {
             remainingTime--;
             if (remainingTime <= 0) {
@@ -91,7 +91,7 @@ $(document).ready(function() {
                 // ]).catch(error => {
                 //     console.error("Error during end game:", error);
                 // });
-                
+
                 // Show modal after a short delay
                 setTimeout(() => {
                     $('#exampleModalCenter').modal('show');
@@ -128,14 +128,14 @@ $(document).ready(function() {
         const userAgent = navigator.userAgent.toLowerCase();
         let browserName;
 
-      if (userAgent.includes("Safari") && !userAgent.includes("Chrome")) {
+        if (userAgent.includes("Safari") && !userAgent.includes("Chrome")) {
             browserName = "Safari";
             $('#browser').modal('show');
-        } 
+        }
         else if (userAgent.includes("Trident") || userAgent.includes("MSIE")) {
             browserName = "Internet Explorer";
             $('#browser').modal('show');
-        } 
+        }
         else if (userAgent.includes("edg/")) {
             browserName = "Microsoft Edge";
         }
@@ -146,24 +146,24 @@ $(document).ready(function() {
         return browserName;
     }
 
- 
+
     // Event Handlers
     $('#generateCardsBtn').on('click', generateNewCard);
 
-    $('#ends').on('click', function() {
+    $('#ends').on('click', function () {
         $('#exampleModalCenter').modal('hide');
         $('#timerDisplay').text('');
         $('#generateCardsBtn').show();
     });
 
-    $('#restart').on('click', function() {
+    $('#restart').on('click', function () {
         $('#exampleModalCenter').modal('hide');
         generateNewCard();
         console.log("restart button clicked!");
         // var timeUpSoundtestsss = new Audio('./assets/Sound-Effect.mp3');
         // timeUpSoundtestsss.load(); 
         // Delay the sound for 30 seconds (30,000 milliseconds)
-        setTimeout(function() {
+        setTimeout(function () {
             console.log("Playing sound after 30 seconds!");
             // timeUpSoundtestsss.play();  // Play the sound
             playTimddeUpSound();
@@ -180,27 +180,27 @@ $(document).ready(function() {
 // $(document).ready(function(){
 //     const audio = document.getElementsByClassName('audio');
 //     const startButton = document.getElementsByClassName('startButton');
-    
+
 //     startButton.addEventListener('click', () => {
 //         console.log("the button was clicked ")
 //       // Play and immediately pause a silent audio file to unlock audio
 //       audio.play().then(() => {
 //         audio.pause();
 //         audio.currentTime = 0;
-    
+
 //         // Start your game logic here
 //         // setTimeout(() => {
 //         //   audio.play(); // Play the sound after 30 seconds
 //         // }, 30000);
 //       });
 //     });
-    
+
 
 // });
- // Global function to play the sound with error handling
+// Global function to play the sound with error handling
 window.playTimddeUpSound = () => {
     var timeUpSoundss = new Audio('./assets/Sound-Effect.mp3');
-    timeUpSoundss.load(); 
+    timeUpSoundss.load();
     return timeUpSoundss.play().catch(error => {
         console.warn("Audio playback failed, retrying...", error);
         return Promise.resolve(); // Prevent Promise.all from breaking
@@ -256,16 +256,16 @@ $(document).ready(function () {
         console.log("Start button clicked!");
         playSounds(); // Call the function to play both sounds
 
-    // Play the second sound after 30 seconds
-    setTimeout(async () => {
-        timeUpSoundtest.volume = 1.0; // Set volume (0.0 to 1.0)
-        timeUpSoundtest.currentTime = 0; // Reset playback position
-        try {
-            await timeUpSoundtest.play();
-            console.log("Second sound played after 30 seconds!");
-        } catch (error) {
-            console.warn("Second audio playback failed:", error);
-        }
-    }, 30000); // Delay of 30 seconds
+        // Play the second sound after 30 seconds
+        setTimeout(async () => {
+            timeUpSoundtest.volume = 1.0; // Set volume (0.0 to 1.0)
+            timeUpSoundtest.currentTime = 0; // Reset playback position
+            try {
+                await timeUpSoundtest.play();
+                console.log("Second sound played after 30 seconds!");
+            } catch (error) {
+                console.warn("Second audio playback failed:", error);
+            }
+        }, 30000); // Delay of 30 seconds
     });
 });
