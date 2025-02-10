@@ -231,13 +231,16 @@ window.playTimddeUpSound = () => {
 // Declare the audio element globally
 var timeUpSoundtest = new Audio('./assets/Sound-Effect.mp3');
 timeUpSoundtest.preload = "auto"; // Preload the audio file
+// Declare the audio element globally
+var gameStartSounds = new Audio('./assets/gamestarts.mp3');
+gameStartSounds.preload = "auto"; // Preload the audio file
 
 // Function to play the sound at a specific volume
-async function playTimeUpSound(volume) {
-    timeUpSoundtest.volume = volume;  // Set volume (0.0 to 1.0)
-    timeUpSoundtest.currentTime = 0;  // Reset playback position
+async function gameStartSound(volume) {
+    gameStartSounds.volume = volume;  // Set volume (0.0 to 1.0)
+    gameStartSounds.currentTime = 0;  // Reset playback position
     try {
-        await timeUpSoundtest.play();
+        await gameStartSounds.play();
     } catch (error) {
         console.warn("Audio playback failed:", error);
     }
@@ -249,12 +252,24 @@ $(document).ready(function() {
         console.log("Start button clicked!");
 
         // Play the sound at low volume (e.g., 0.3)
-        playTimeUpSound(0.0);
+        gameStartSound(1.0);
 
         // After 30 seconds, increase the volume and play again
         setTimeout(() => {
             console.log("Playing sound at full volume after 30 seconds!");
-            playTimeUpSound(1.0);
+            gameEndedSound(1.0);
         }, 30000); // Delay of 30 seconds
     });
 });
+
+
+// Function to play the sound at a specific volume
+async function gameEndedSound(volume) {
+    timeUpSoundtest.volume = volume;  // Set volume (0.0 to 1.0)
+    timeUpSoundtest.currentTime = 0;  // Reset playback position
+    try {
+        await timeUpSoundtest.play();
+    } catch (error) {
+        console.warn("Audio playback failed:", error);
+    }
+}
