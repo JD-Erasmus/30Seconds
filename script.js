@@ -228,40 +228,33 @@ window.playTimddeUpSound = () => {
 //     });
 // });
 
+// Declare the audio element globally
+var timeUpSoundtest = new Audio('./assets/Sound-Effect.mp3');
+timeUpSoundtest.preload = "auto"; // Preload the audio file
+
+// Function to play the sound at a specific volume
+async function playTimeUpSound(volume) {
+    timeUpSoundtest.volume = volume;  // Set volume (0.0 to 1.0)
+    timeUpSoundtest.currentTime = 0;  // Reset playback position
+    try {
+        await timeUpSoundtest.play();
+    } catch (error) {
+        console.warn("Audio playback failed:", error);
+    }
+}
+
+// jQuery: When the start button is clicked
 $(document).ready(function() {
-    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-    let audioBuffer;
-
-    // Load the audio file and decode it
-    fetch('./assets/Sound-Effect.mp3')
-        .then(response => response.arrayBuffer())
-        .then(arrayBuffer => audioContext.decodeAudioData(arrayBuffer))
-        .then(decodedData => {
-            audioBuffer = decodedData;
-        });
-
-    const playSound = (volume, delay) => {
-        const source = audioContext.createBufferSource();
-        const gainNode = audioContext.createGain();
-        source.buffer = audioBuffer;
-        source.connect(gainNode);
-        gainNode.connect(audioContext.destination);
-        gainNode.gain.value = volume;
-
-        source.start(audioContext.currentTime + delay);
-        console.log(`Sound will play at volume ${volume} after ${delay} seconds.`);
-    };
-
     $('.startButton').on('click', function() {
         console.log("Start button clicked!");
 
-        // Resume the audio context (required for iOS)
-        audioContext.resume().then(() => {
-            // Play sound at low volume immediately
-            playSound(0.3, 0);
+        // Play the sound at low volume (e.g., 0.3)
+        playTimeUpSound(0.1);
 
-            // Play sound at full volume after 30 seconds
-            playSound(1.0, 30);
-        });
+        // After 30 seconds, increase the volume and play again
+        setTimeout(() => {
+            console.log("Playing sound at full volume after 30 seconds!");
+            playTimeUpSound(1.0);
+        }, 30000); // Delay of 30 seconds
     });
 });
