@@ -249,7 +249,7 @@ $(document).ready(function() {
         console.log("Start button clicked!");
 
         // Play the sound at low volume (e.g., 0.3)
-        playTimeUpSound(0.1);
+        playTimeUpSound(0.0);
 
         // After 30 seconds, increase the volume and play again
         setTimeout(() => {
