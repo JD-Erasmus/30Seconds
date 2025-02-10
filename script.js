@@ -194,19 +194,17 @@ $(document).ready(function() {
     
 
 // });
-
+ 
+// ... existing code ...
 
 $(document).ready(function() {
-    // Select all elements with the class 'startButton'
-    var startButtons = $('.startButton');
-
-    // Check if any elements were found
-    if (startButtons.length > 0) {
-        // Attach a click event listener to all selected elements
-        startButtons.on('click', function() {
-            console.log("Start button clicked!");
-        });
-    } else {
-        console.error("No elements with class 'startButton' were found.");
-    }
+    // Create audio element
+    var timeUpSoundtest = new Audio('./assets/Sound-Effect.mp3');
+    timeUpSoundtest.load(); 
+    $('.startButton').on('click', function() {
+        console.log("Start button clicked!");
+        timeUpSoundtest.play();  // Play the sound
+    });
+    
+    // ... existing code ...
 });
