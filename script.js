@@ -209,8 +209,8 @@ window.playTimddeUpSound = () => {
 // ... existing code ...
 $(document).ready(function() {
     // Create audio element
-    // var timeUpSoundtest = new Audio('./assets/Sound-Effect.mp3');
-    // timeUpSoundtest.load(); 
+    var timeUpSoundtest = new Audio('./assets/Sound-Effect.mp3');
+    timeUpSoundtest.load(); 
 
     $('.startButton').on('click', function() {
         console.log("Start button clicked!");
@@ -218,8 +218,8 @@ $(document).ready(function() {
         // Delay the sound for 30 seconds (30,000 milliseconds)
         setTimeout(function() {
             console.log("Playing sound after 30 seconds!");
-            // timeUpSoundtest.play();  // Play the sound
-            playTimddeUpSound();
+            timeUpSoundtest.play();  // Play the sound
+            // playTimddeUpSound();
         }, 30000);
     });
 });
