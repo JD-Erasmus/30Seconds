@@ -207,35 +207,61 @@ window.playTimddeUpSound = () => {
     });
 };
 // ... existing code ...
-$(document).ready(function() {
-    // Create audio element
-
-
-    $('.startButton').on('click', function() {
-        var timeUpSoundtest = new Audio('./assets/Sound-Effect.mp3');
-        timeUpSoundtest.preload  = "auto";
-        timeUpSoundtest.volume = 0.0;
-        timeUpSoundtest.play();
-        console.log("Start button clicked!");
-        // playTimddeUpSound()
-        // Delay the sound for 30 seconds (30,000 milliseconds)
-        setTimeout(function() {
-            timeUpSoundtest.volume = 1.0;
-            console.log("Playing sound after 30 seconds!");
-            timeUpSoundtest.play();  // Play the sound
-            // playTimddeUpSound();
-        }, 30000);
-    });
-});
-
 // $(document).ready(function() {
 //     // Create audio element
-//     var timeUpSoundtest = new Audio('./assets/Sound-Effect.mp3');
-//     timeUpSoundtest.load(); 
+
+
 //     $('.startButton').on('click', function() {
+//         var timeUpSoundtest = new Audio('./assets/Sound-Effect.mp3');
+//         timeUpSoundtest.preload  = "auto";
+//         timeUpSoundtest.volume = 0.0;
+//         timeUpSoundtest.play();
 //         console.log("Start button clicked!");
-//         timeUpSoundtest.play();  // Play the sound
+//         // playTimddeUpSound()
+//         // Delay the sound for 30 seconds (30,000 milliseconds)
+//         setTimeout(function() {
+//             timeUpSoundtest.volume = 1.0;
+//             console.log("Playing sound after 30 seconds!");
+//             timeUpSoundtest.play();  // Play the sound
+//             // playTimddeUpSound();
+//         }, 30000);
 //     });
-    
-//     // ... existing code ...
 // });
+
+$(document).ready(function() {
+    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    let audioBuffer;
+
+    // Load the audio file and decode it
+    fetch('./assets/Sound-Effect.mp3')
+        .then(response => response.arrayBuffer())
+        .then(arrayBuffer => audioContext.decodeAudioData(arrayBuffer))
+        .then(decodedData => {
+            audioBuffer = decodedData;
+        });
+
+    const playSound = (volume, delay) => {
+        const source = audioContext.createBufferSource();
+        const gainNode = audioContext.createGain();
+        source.buffer = audioBuffer;
+        source.connect(gainNode);
+        gainNode.connect(audioContext.destination);
+        gainNode.gain.value = volume;
+
+        source.start(audioContext.currentTime + delay);
+        console.log(`Sound will play at volume ${volume} after ${delay} seconds.`);
+    };
+
+    $('.startButton').on('click', function() {
+        console.log("Start button clicked!");
+
+        // Resume the audio context (required for iOS)
+        audioContext.resume().then(() => {
+            // Play sound at low volume immediately
+            playSound(0.3, 0);
+
+            // Play sound at full volume after 30 seconds
+            playSound(1.0, 30);
+        });
+    });
+});
