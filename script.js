@@ -247,6 +247,15 @@ async function playSounds() {
         console.warn("First audio playback failed:", error);
     }
 
+
+}
+
+// jQuery: When the start button is clicked
+$(document).ready(function () {
+    $('.startButton').on('click', function () {
+        console.log("Start button clicked!");
+        playSounds(); // Call the function to play both sounds
+
     // Play the second sound after 30 seconds
     setTimeout(async () => {
         timeUpSoundtest.volume = 1.0; // Set volume (0.0 to 1.0)
@@ -258,12 +267,5 @@ async function playSounds() {
             console.warn("Second audio playback failed:", error);
         }
     }, 30000); // Delay of 30 seconds
-}
-
-// jQuery: When the start button is clicked
-$(document).ready(function () {
-    $('.startButton').on('click', function () {
-        console.log("Start button clicked!");
-        playSounds(); // Call the function to play both sounds
     });
 });
