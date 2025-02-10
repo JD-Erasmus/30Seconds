@@ -258,14 +258,15 @@ $(document).ready(function () {
 
         // Play the second sound after 30 seconds
         setTimeout(async () => {
-            timeUpSoundtest.volume = 1.0; // Set volume (0.0 to 1.0)
-            timeUpSoundtest.currentTime = 0; // Reset playback position
-            try {
-                await timeUpSoundtest.play();
-                console.log("Second sound played after 30 seconds!");
-            } catch (error) {
-                console.warn("Second audio playback failed:", error);
-            }
+            playSounds(); 
+            // timeUpSoundtest.volume = 1.0; // Set volume (0.0 to 1.0)
+            // timeUpSoundtest.currentTime = 0; // Reset playback position
+            // try {
+            //     await timeUpSoundtest.play();
+            //     console.log("Second sound played after 30 seconds!");
+            // } catch (error) {
+            //     console.warn("Second audio playback failed:", error);
+            // }
         }, 30000); // Delay of 30 seconds
     });
 });
