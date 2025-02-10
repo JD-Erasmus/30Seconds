@@ -209,10 +209,11 @@ window.playTimddeUpSound = () => {
 // ... existing code ...
 $(document).ready(function() {
     // Create audio element
-    var timeUpSoundtest = new Audio('./assets/Sound-Effect.mp3');
-    timeUpSoundtest.load(); 
+
 
     $('.startButton').on('click', function() {
+        var timeUpSoundtest = new Audio('./assets/Sound-Effect.mp3');
+        timeUpSoundtest.load(); 
         console.log("Start button clicked!");
         // playTimddeUpSound()
         // Delay the sound for 30 seconds (30,000 milliseconds)
