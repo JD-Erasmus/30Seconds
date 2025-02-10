@@ -163,11 +163,7 @@ $(document).ready(function () {
         // var timeUpSoundtestsss = new Audio('./assets/Sound-Effect.mp3');
         // timeUpSoundtestsss.load(); 
         // Delay the sound for 30 seconds (30,000 milliseconds)
-        setTimeout(function () {
-            console.log("Playing sound after 30 seconds!");
-            // timeUpSoundtestsss.play();  // Play the sound
-            playTimddeUpSound();
-        }, 30000);
+      
     });
 
     // Log browser info on load
@@ -197,15 +193,7 @@ $(document).ready(function () {
 
 
 // });
-// Global function to play the sound with error handling
-window.playTimddeUpSound = () => {
-    var timeUpSoundss = new Audio('./assets/Sound-Effect.mp3');
-    timeUpSoundss.load();
-    return timeUpSoundss.play().catch(error => {
-        console.warn("Audio playback failed, retrying...", error);
-        return Promise.resolve(); // Prevent Promise.all from breaking
-    });
-};
+ 
 // ... existing code ...
 // $(document).ready(function() {
 //     // Create audio element
@@ -303,7 +291,10 @@ window.playTimddeUpSound = () => {
       sound2.play();
     }, 30000);
   }
-
+ 
   // Trigger the function on button click
   document.querySelector('.startButton').addEventListener('click', playSounds);
+
+// Trigger the function on button click
+document.querySelector('.restart').addEventListener('click', playSounds);
  
