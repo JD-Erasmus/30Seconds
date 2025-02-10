@@ -228,48 +228,42 @@ window.playTimddeUpSound = () => {
 //     });
 // });
 
-// Declare the audio element globally
+// Declare the audio elements globally
 var timeUpSoundtest = new Audio('./assets/Sound-Effect.mp3');
 timeUpSoundtest.preload = "auto"; // Preload the audio file
-// Declare the audio element globally
+
 var gameStartSounds = new Audio('./assets/gamestarts.mp3');
 gameStartSounds.preload = "auto"; // Preload the audio file
 
-// Function to play the sound at a specific volume
-async function gameStartSound(volume) {
-    gameStartSounds.volume = volume;  // Set volume (0.0 to 1.0)
-    gameStartSounds.currentTime = 0;  // Reset playback position
+// Function to play sounds
+async function playSounds() {
+    // Play the first sound immediately
+    gameStartSounds.volume = 1.0; // Set volume (0.0 to 1.0)
+    gameStartSounds.currentTime = 0; // Reset playback position
     try {
         await gameStartSounds.play();
+        console.log("First sound played!");
     } catch (error) {
-        console.warn("Audio playback failed:", error);
+        console.warn("First audio playback failed:", error);
     }
+
+    // Play the second sound after 30 seconds
+    setTimeout(async () => {
+        timeUpSoundtest.volume = 1.0; // Set volume (0.0 to 1.0)
+        timeUpSoundtest.currentTime = 0; // Reset playback position
+        try {
+            await timeUpSoundtest.play();
+            console.log("Second sound played after 30 seconds!");
+        } catch (error) {
+            console.warn("Second audio playback failed:", error);
+        }
+    }, 30000); // Delay of 30 seconds
 }
 
 // jQuery: When the start button is clicked
-$(document).ready(function() {
-    $('.startButton').on('click', function() {
+$(document).ready(function () {
+    $('.startButton').on('click', function () {
         console.log("Start button clicked!");
-
-        // Play the sound at low volume (e.g., 0.3)
-        gameStartSound(1.0);
-
-        // After 30 seconds, increase the volume and play again
-        setTimeout(() => {
-            console.log("Playing sound at full volume after 30 seconds!");
-            gameEndedSound(1.0);
-        }, 30000); // Delay of 30 seconds
+        playSounds(); // Call the function to play both sounds
     });
 });
-
-
-// Function to play the sound at a specific volume
-async function gameEndedSound(volume) {
-    timeUpSoundtest.volume = volume;  // Set volume (0.0 to 1.0)
-    timeUpSoundtest.currentTime = 0;  // Reset playback position
-    try {
-        await timeUpSoundtest.play();
-    } catch (error) {
-        console.warn("Audio playback failed:", error);
-    }
-}
