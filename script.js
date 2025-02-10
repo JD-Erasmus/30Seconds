@@ -248,18 +248,27 @@ async function playSounds() {
     }
 
 
-        // Play the second sound after 30 seconds
-        setTimeout(async () => {
-         
-            // timeUpSoundtest.volume = 1.0; // Set volume (0.0 to 1.0)
-            // timeUpSoundtest.currentTime = 0; // Reset playback position
-            try {
-                await gameStartSounds.play();
-                console.log("Second sound played after 30 seconds!");
-            } catch (error) {
-                console.warn("Second audio playback failed:", error);
-            }
-        }, 30000); // Delay of 30 seconds
+    // Play the second sound after 30 seconds
+    setTimeout(async () => {
+ 
+        // Clear the current sound
+        gameStartSounds = null; // Remove the reference to the old audio object
+
+        // Load a new sound
+        gameStartSounds = new Audio('./assets/Sound-Effect.mp3');
+        gameStartSounds.preload = "auto"; // Preload the new audio file
+        console.log("New sound loaded:");
+
+
+        // timeUpSoundtest.volume = 1.0; // Set volume (0.0 to 1.0)
+        // timeUpSoundtest.currentTime = 0; // Reset playback position
+        try {
+            await gameStartSounds.play();
+            console.log("Second sound played after 30 seconds!");
+        } catch (error) {
+            console.warn("Second audio playback failed:", error);
+        }
+    }, 30000); // Delay of 30 seconds
 }
 
 // jQuery: When the start button is clicked
