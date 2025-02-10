@@ -228,54 +228,82 @@ window.playTimddeUpSound = () => {
 //     });
 // });
 
-// Declare the audio elements globally
-var timeUpSoundtest = new Audio('./assets/Sound-Effect.mp3');
-timeUpSoundtest.preload = "auto"; // Preload the audio file
+// // Declare the audio elements globally
+// var timeUpSoundtest = new Audio('./assets/Sound-Effect.mp3');
+// timeUpSoundtest.preload = "auto"; // Preload the audio file
 
-var gameStartSounds = new Audio('./assets/gamestarts.mp3');
-gameStartSounds.preload = "auto"; // Preload the audio file
+// var gameStartSounds = new Audio('./assets/gamestarts.mp3');
+// gameStartSounds.preload = "auto"; // Preload the audio file
 
-// Function to play sounds
-async function playSounds() {
-    // Play the first sound immediately
-    gameStartSounds.volume = 1.0; // Set volume (0.0 to 1.0)
-    gameStartSounds.currentTime = 0; // Reset playback position
-    try {
-        await gameStartSounds.play();
-        console.log("First sound played!");
-    } catch (error) {
-        console.warn("First audio playback failed:", error);
-    }
+// // Function to play sounds
+// async function playSounds() {
+//     // Play the first sound immediately
+//     gameStartSounds.volume = 1.0; // Set volume (0.0 to 1.0)
+//     gameStartSounds.currentTime = 0; // Reset playback position
+//     try {
+//         await gameStartSounds.play();
+//         console.log("First sound played!");
+//     } catch (error) {
+//         console.warn("First audio playback failed:", error);
+//     }
 
+
+//     // Play the second sound after 30 seconds
+//     setTimeout(async () => {
+ 
+//         // Clear the current sound
+//         gameStartSounds = null; // Remove the reference to the old audio object
+
+//         // Load a new sound
+//         gameStartSounds = new Audio('./assets/Sound-Effect.mp3');
+//         gameStartSounds.preload = "auto"; // Preload the new audio file
+//         console.log("New sound loaded:");
+
+
+//         // timeUpSoundtest.volume = 1.0; // Set volume (0.0 to 1.0)
+//         // timeUpSoundtest.currentTime = 0; // Reset playback position
+//         try {
+//             await gameStartSounds.play();
+//             console.log("Second sound played after 30 seconds!");
+//         } catch (error) {
+//             console.warn("Second audio playback failed:", error);
+//         }
+//     }, 30000); // Delay of 30 seconds
+// }
+
+// // jQuery: When the start button is clicked
+// $(document).ready(function () {
+//     $('.startButton').on('click', function () {
+//         console.log("Start button clicked!");
+//         playSounds(); // Call the function to play both sounds
+
+//     });
+// });
+
+// Load Howler.js from a CDN
+ 
+  // Create a Howl object for the first sound
+  const sound1 = new Howl({
+    src: ['./assets/gamestarts.mp3'],
+    preload: true,
+  });
+
+  // Create a Howl object for the second sound
+  const sound2 = new Howl({
+    src: ['./assets/Sound-Effect.mp3'],
+    preload: true,
+  });
+
+  // Function to play sounds with a delay
+  function playSounds() {
+    sound1.play(); // Play the first sound immediately
 
     // Play the second sound after 30 seconds
-    setTimeout(async () => {
+    setTimeout(() => {
+      sound2.play();
+    }, 30000);
+  }
+
+  // Trigger the function on button click
+  document.querySelector('.startButton').addEventListener('click', playSounds);
  
-        // Clear the current sound
-        gameStartSounds = null; // Remove the reference to the old audio object
-
-        // Load a new sound
-        gameStartSounds = new Audio('./assets/Sound-Effect.mp3');
-        gameStartSounds.preload = "auto"; // Preload the new audio file
-        console.log("New sound loaded:");
-
-
-        // timeUpSoundtest.volume = 1.0; // Set volume (0.0 to 1.0)
-        // timeUpSoundtest.currentTime = 0; // Reset playback position
-        try {
-            await gameStartSounds.play();
-            console.log("Second sound played after 30 seconds!");
-        } catch (error) {
-            console.warn("Second audio playback failed:", error);
-        }
-    }, 30000); // Delay of 30 seconds
-}
-
-// jQuery: When the start button is clicked
-$(document).ready(function () {
-    $('.startButton').on('click', function () {
-        console.log("Start button clicked!");
-        playSounds(); // Call the function to play both sounds
-
-    });
-});
