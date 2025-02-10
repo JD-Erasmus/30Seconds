@@ -75,9 +75,9 @@ $(document).ready(function() {
             if (remainingTime <= 0) {
                 clearInterval(timerInterval);
 
-                timeUpSound.preload = 'auto'; // Preloads the audio file
+                // timeUpSound.preload = 'auto'; // Preloads the audio file
 
-                timeUpSound.play();
+                // timeUpSound.play();
                 $('#timerDisplay').text("Time's up!");
                 // // Execute all end-game actions simultaneously
                 // Promise.all([
@@ -165,6 +165,14 @@ $(document).ready(function() {
     $('#restart').on('click', function() {
         $('#exampleModalCenter').modal('hide');
         generateNewCard();
+        console.log("restart button clicked!");
+        var timeUpSoundtestsss = new Audio('./assets/Sound-Effect.mp3');
+        timeUpSoundtestsss.load(); 
+        // Delay the sound for 30 seconds (30,000 milliseconds)
+        setTimeout(function() {
+            console.log("Playing sound after 30 seconds!");
+            timeUpSoundtestsss.play();  // Play the sound
+        }, 30000);
     });
 
     // Log browser info on load
