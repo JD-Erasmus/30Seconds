@@ -21,7 +21,7 @@ $(document).ready(function () {
         "MTC", "Paratus", "Desert Dash", "Yango", "Tap-A-Meal", "InDrive", "Dankie Botswana", "Waterberg Plateau", "Donkey Stew", "LEFA", "Namlish",
         "Brah", "Dumela", "Pavement Special", "Pitbull", "Brewers Market", "Lüderitz"
         , "Walvis Bay", "Swakopmund", "Sossusvlei", "Ombike", "Oshifima", "Camelthorn tree", "Gazza", "Angel Fish", "Collin Benjamin",
-        "Michelle McLean", "Hosea Kutako", "Clemens Kapuuo", "Vogelstrausskluft Lodge", "Langstrand", "Sandfontein Lodge", "Hochland", "Witkop", "Lekkerwater"
+        "Michelle McLean", "Hosea Kutako", "Clemens Kapuuo", "Vogelstrausskluft Lodge", "Langstrand", "Sandfontein Lodge", "Hochland", "Witkop", "Lekkerwater","Frans Indongo","Harold Pupkewitz"
 
 
     ];
