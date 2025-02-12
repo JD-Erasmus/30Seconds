@@ -4,11 +4,11 @@
    1. Layout Containers
    ==================== */
 
-   .game-container {
+/* .game-container {
     min-height: 100vh;
     background: linear-gradient(135deg, #f9c46b, #e76f51);
     padding: 5px;
-}
+} */
 
 .card-container {
     perspective: 1000px;
@@ -67,7 +67,8 @@
 }
 
 .card-title {
-    color: #0074d9; /* Namibian blue */
+    color: #0074d9;
+    /* Namibian blue */
 }
 
 /* ====================
@@ -125,7 +126,8 @@
    4. Buttons
    ==================== */
 
-.btn-generate, .btnHowToPlay {
+.btn-generate,
+.btnHowToPlay {
     background: #e76f51;
     color: white;
     border: none;
@@ -137,7 +139,8 @@
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-.btn-generate:hover, .btnHowToPlay:hover {
+.btn-generate:hover,
+.btnHowToPlay:hover {
     transform: translateY(-2px);
     background-color: #000;
     color: white;
@@ -158,7 +161,7 @@
     max-width: 40px;
     height: auto;
     margin-right: 10px;
-}  
+}
 
 /* ====================
    6. Animations
@@ -170,4 +173,14 @@
         transform: translateY(-20px);
     }
 
+}
+
+.logoCSS {
+  
+
+
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+    object-fit: contain;
 }
