@@ -13,12 +13,32 @@
     <link rel="stylesheet" href="style.css">
     <!-- Add this style block -->
     <style>
-        body {
+        /* body {
             margin: 0;
             padding: 0;
             background: url('./images/create\ sand\ dunes\ from\ swakopmund\ like\ its\ a\ pix\ art\ \,\ don\'t\ add\ text\ to\ it\ .jpg') no-repeat center center fixed;
             background-size: cover;
             height: 100vh;
+        } */
+        body {
+            background: url('./images/create\ sand\ dunes\ from\ swakopmund\ like\ its\ a\ pix\ art\ \,\ don\'t\ add\ text\ to\ it\ .jpg') no-repeat center center fixed;
+            background-size: cover;
+            /* Ensures the image covers the entire viewport */
+            margin: 0;
+            /* Removes default margin */
+            padding: 0;
+            height: 100vh;
+            /* Makes sure the body fills the viewport height */
+        }
+
+        .navbar .nav-link {
+            color: white !important;
+        }
+
+        nav {
+            /* background: rgba(0, 0, 0, 0.5);   */
+            color: white;
+            padding: 15px;
         }
 
         .content-wrapper {
@@ -29,18 +49,28 @@
             /* Semi-transparent white background */
             overflow-y: auto;
         }
+
+
+        .navbar-toggler {
+            background-color: white !important;
+            /* White background for the button */
+            border: none;
+            /* Optional: remove border */
+        }
+
+ 
     </style>
 </head>
 
 <body>
     <div class="content-wrapper">
 
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <nav class="navbar navbar-expand-lg  ">
             <div class="container-fluid">
                 <!-- <a class="navbar-brand" href="#">
                     <img src="./images/Untitled_design-removebg-preview.png" width="60" height="60" alt="">
                 </a> -->
-                <a class="navbar-brand" href="#" style="visibility: hidden;" >Nam30</a>
+                <a class="navbar-brand" href="#" style="visibility: hidden;">Nam30</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -100,7 +130,7 @@
 
                 </div>
             </div>
- 
+
         </div>
         <!-- Game Content -->
         <div class="game-container text-center pt-5">
