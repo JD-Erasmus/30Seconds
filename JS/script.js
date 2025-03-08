@@ -19,11 +19,26 @@ $(document).ready(function () {
         "Frankie Fredericks", "Welwitschia", "Amapiano", "Oshiwambo Wedding", "Oviritje Music", "Braai Master", "Rooibos Tea", "Mopane Worms",
         "Dankie Brewery", "Eeh-wa!", "Jou Lekker Ding", "Hosea Kutako", "Harry Simon", "Ninja", "Jacques Burger", "Tswazis", "Eagle FM", "Telecom Namibia",
         "MTC", "Paratus", "Desert Dash", "Yango", "Tap-A-Meal", "InDrive", "Dankie Botswana", "Waterberg Plateau", "Donkey Stew", "LEFA", "Namlish",
-        "Brah", "Dumela", "Pavement Special", "Pitbull", "Brewers Market", "Lüderitz"
-        , "Walvis Bay", "Swakopmund", "Sossusvlei", "Ombike", "Oshifima", "Camelthorn tree", "Gazza", "Angel Fish", "Collin Benjamin",
-        "Michelle McLean", "Hosea Kutako", "Clemens Kapuuo", "Vogelstrausskluft Lodge", "Langstrand", "Sandfontein Lodge", "Hochland", "Witkop", "Lekkerwater","Frans Indongo","Harold Pupkewitz"
-
-
+        "Brah", "Dumela", "Pavement Special", "Pitbull", "Brewers Market", "Lüderitz", "Walvis Bay", "Swakopmund", "Sossusvlei", "Ombike", "Oshifima", 
+        "Camelthorn tree", "Gazza", "Angel Fish", "Collin Benjamin", "Michelle McLean", "Hosea Kutako", "Clemens Kapuuo", "Vogelstrausskluft Lodge", 
+        "Langstrand", "Sandfontein Lodge", "Hochland", "Witkop", "Lekkerwater", "Frans Indongo", "Harold Pupkewitz", "Veldskoen", "Donkey Cart",
+        // Adding new Namibian content
+        "Theo-Ben Gurirab", "Penduka Village", "Daan Viljoen Game Park", "Von Bach Dam", "Gross Barmen",
+         "Omatako Mountains", "Brandberg Mountain", "Kunene River", "Zambezi Region",
+        "Kavango Region", "Otjozondjupa", "Khomas Region", "Erongo Region", "Hardap Dam",
+        "Naute Dam", "Ruacana Falls", "Popa Falls", "Tsumeb Mine", "Rössing Uranium Mine",
+        "Husab Mine", "Monica Geingos", "Peter Nanyemba", "Andimba Toivo ya Toivo", "Hendrik Witbooi",
+        "Anna Mungunda", "Brendan Simbwaye", "Putuse Appolus", "Libertina Amathila", "Ben Amadhila",
+        "Oshana Region", "Ohangwena Region", "Omusati Region", "Oshikoto Region", "Omaheke Region",
+        "//Kharas Region", "Otavi", "Outjo", "Opuwo", "Katima Mulilo",
+        "Keetmanshoop", "Mariental", "Rehoboth", "Henties Bay", "Oranjemund",
+        "Tsumkwe", "Grootfontein", "Otjiwarongo", "Okakarara", "Gobabis",
+        "Namib Mills", "Namibia Breweries", "Namibia Dairies", "Ohlthaver & List", "Pupkewitz Group",
+        "Capricorn Group", "Nictus", "Trustco", "Namibia Wildlife Resorts", "AgriBank",
+        "Development Bank of Namibia", "NamWater", "NamPower", "Namibia Statistics Agency", "Bank of Namibia",
+        "Namibia University of Science and Technology", "International University of Management", "Namibia Institute of Mining and Technology",
+        "Windhoek Country Club", "Safari Hotel", "Hilton Windhoek", "Avani Windhoek", "Joe's Beerhouse",
+        "Namibia Football Association", "Cricket Namibia", "Rugby Union of Namibia", "Namibia Olympic Committee"
     ];
 
 
