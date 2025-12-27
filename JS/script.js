@@ -1,6 +1,11 @@
 // script.js
+// Main script for 30 Seconds game logic
 $(document).ready(function () {
-    const words = [
+    /**
+     * List of Namibian-themed words for the game.
+     * Contains locations, cultural terms, famous people, and brands.
+     */
+    let words = [
         "Fishrot", "Windhoek Lager", "Tafel Lager", "Kapana", "Fat Cakes", "Ohole",
         "King TeeDee", "Namib Desert", "Etosha National Park",
         "Fish River Canyon", "Skeleton Coast", "Spitzkoppe", "Quiver Tree", "Oshakati",
@@ -19,12 +24,13 @@ $(document).ready(function () {
         "Frankie Fredericks", "Welwitschia", "Amapiano", "Oshiwambo Wedding", "Oviritje Music", "Braai Master", "Rooibos Tea", "Mopane Worms",
         "Dankie Brewery", "Eeh-wa!", "Jou Lekker Ding", "Hosea Kutako", "Harry Simon", "Ninja", "Jacques Burger", "Tswazis", "Eagle FM", "Telecom Namibia",
         "MTC", "Paratus", "Desert Dash", "Yango", "Tap-A-Meal", "InDrive", "Dankie Botswana", "Waterberg Plateau", "Donkey Stew", "LEFA", "Namlish",
-        "Brah", "Dumela", "Pavement Special", "Pitbull", "Brewers Market", "Lüderitz", "Walvis Bay", "Swakopmund", "Sossusvlei", "Ombike", "Oshifima", 
-        "Camelthorn tree", "Gazza", "Angel Fish", "Collin Benjamin", "Michelle McLean", "Hosea Kutako", "Clemens Kapuuo", "Vogelstrausskluft Lodge", 
+        "Brah", "Dumela", "Pavement Special", "Pitbull", "Brewers Market", "Lüderitz", "Walvis Bay", "Swakopmund", "Sossusvlei", "Ombike", "Oshifima",
+        "Camelthorn tree", "Gazza", "Angel Fish", "Collin Benjamin", "Michelle McLean", "Hosea Kutako", "Clemens Kapuuo", "Vogelstrausskluft Lodge",
         "Langstrand", "Sandfontein Lodge", "Hochland", "Witkop", "Lekkerwater", "Frans Indongo", "Harold Pupkewitz", "Veldskoen", "Donkey Cart",
         // Adding new Namibian content
+        // Adding new Namibian content
         "Theo-Ben Gurirab", "Penduka Village", "Daan Viljoen Game Park", "Von Bach Dam", "Gross Barmen",
-         "Omatako Mountains", "Brandberg Mountain", "Kunene River", "Zambezi Region",
+        "Omatako Mountains", "Brandberg Mountain", "Kunene River", "Zambezi Region",
         "Kavango Region", "Otjozondjupa", "Khomas Region", "Erongo Region", "Hardap Dam",
         "Naute Dam", "Ruacana Falls", "Popa Falls", "Tsumeb Mine", "Rössing Uranium Mine",
         "Husab Mine", "Monica Geingos", "Peter Nanyemba", "Andimba Toivo ya Toivo", "Hendrik Witbooi",
@@ -36,17 +42,26 @@ $(document).ready(function () {
         "Namib Mills", "Namibia Breweries", "Namibia Dairies", "Ohlthaver & List", "Pupkewitz Group",
         "Capricorn Group", "Nictus", "Trustco", "Namibia Wildlife Resorts", "AgriBank",
         "Development Bank of Namibia", "NamWater", "NamPower", "Namibia Statistics Agency", "Bank of Namibia",
-        "Namibia University of Science and Technology", "International University of Management", "Namibia Institute of Mining and Technology",
+        "NUST", "International University of Management", "Namibia Institute of Mining and Technology",
         "Windhoek Country Club", "Safari Hotel", "Hilton Windhoek", "Avani Windhoek", "Joe's Beerhouse",
-        "Namibia Football Association", "Cricket Namibia", "Rugby Union of Namibia", "Namibia Olympic Committee"
+        "Namibia Football Association", "Cricket Namibia", "Rugby Union of Namibia", "Namibia Olympic Committee",
+        "Nangolo Mbumba", "Christine Mboma", "Beatrice Masilingi", "Johanna Benson", "Eveline Street", "Single Quarters",
+        "Twyfelfontein", "Cassinga Day", "The Namibian", "Desert Jewel", "Smileys", "Kasi",
+        "Topnaar", "Bwabwata National Park", "Independence Avenue", "Eish", "Meme", "Tate", "Oupa", "Ouma",
+        "Omagongo Festival", "Kalahari Desert", "Shark Island", "Ai-Ais Hot Springs", "Zambezi Bream"
     ];
 
 
+    // State tracking
     let usedWords = new Set();
     let timerInterval;
     var timeUpSound = new Audio('./assets/Sound-Effect.mp3');
     timeUpSound.load();
 
+    /**
+     * Fisher-Yates shuffle algorithm to randomize array elements.
+     * @param {Array} array - The array to shuffle.
+     */
     function shuffle(array) {
         for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
@@ -54,18 +69,22 @@ $(document).ready(function () {
         }
     }
 
+    /**
+     * Selects 5 unique random words from the words list.
+     * Resets used words history if fewer than 5 words remain.
+     * @returns {string[][]} An array containing one array of 5 words.
+     */
     function getNamibianCards() {
         try {
-            const availableWords = words.filter(word => !usedWords.has(word));
+            let availableWords = words.filter(word => !usedWords.has(word));
 
             if (availableWords.length < 5) {
                 usedWords.clear();
+                availableWords = [...words];
             }
 
-            const shuffledWords = [...availableWords];
-            shuffle(shuffledWords);
-
-            const selectedWords = shuffledWords.slice(0, 5);
+            shuffle(availableWords);
+            const selectedWords = availableWords.slice(0, 5);
             selectedWords.forEach(word => usedWords.add(word));
 
             return [selectedWords];
@@ -75,6 +94,11 @@ $(document).ready(function () {
         }
     }
 
+    /**
+     * Starts the countdown timer.
+     * Updates the UI every second and handles "Time's up" state.
+     * @param {number} durationInSeconds - Length of the timer.
+     */
     function startTimer(durationInSeconds) {
         $('#generateCardsBtn').hide();
 
@@ -117,6 +141,10 @@ $(document).ready(function () {
         }, 1000);
     }
 
+    /**
+     * Resets game state, generates a new card with 5 words,
+     * and triggers the timer.
+     */
     function generateNewCard() {
         isPlaying = true;
         $('#wordList').empty();
@@ -139,6 +167,10 @@ $(document).ready(function () {
         }, 500);
     }
 
+    /**
+     * Detects the user's browser to warn about compatibility issues.
+     * @returns {string} The name of the detected browser.
+     */
     function detectBrowser() {
         const userAgent = navigator.userAgent.toLowerCase();
         let browserName;
@@ -162,15 +194,19 @@ $(document).ready(function () {
     }
 
 
-    // Event Handlers
+    // --- Event Handlers ---
+
+    // Generate new card on start button click
     $('#generateCardsBtn').on('click', generateNewCard);
 
+    // Handle "End" button in modal
     $('#ends').on('click', function () {
         $('#exampleModalCenter').modal('hide');
         $('#timerDisplay').text('');
         $('#generateCardsBtn').show();
     });
 
+    // Handle "Restart" button in modal
     $('#restart').on('click', function () {
         $('#exampleModalCenter').modal('hide');
         generateNewCard();
@@ -178,7 +214,7 @@ $(document).ready(function () {
         // var timeUpSoundtestsss = new Audio('./assets/Sound-Effect.mp3');
         // timeUpSoundtestsss.load(); 
         // Delay the sound for 30 seconds (30,000 milliseconds)
-      
+
     });
 
     // Log browser info on load
@@ -208,7 +244,7 @@ $(document).ready(function () {
 
 
 // });
- 
+
 // ... existing code ...
 // $(document).ready(function() {
 //     // Create audio element
@@ -253,7 +289,7 @@ $(document).ready(function () {
 
 //     // Play the second sound after 30 seconds
 //     setTimeout(async () => {
- 
+
 //         // Clear the current sound
 //         gameStartSounds = null; // Remove the reference to the old audio object
 
@@ -284,32 +320,34 @@ $(document).ready(function () {
 // });
 
 // Load Howler.js from a CDN
- 
-  // Create a Howl object for the first sound
-  const sound1 = new Howl({
+
+// Create a Howl object for the first sound
+const sound1 = new Howl({
     src: ['./assets/gamestarts.mp3'],
     preload: true,
-  });
+});
 
-  // Create a Howl object for the second sound
-  const sound2 = new Howl({
+// Create a Howl object for the time-up sound
+const sound2 = new Howl({
     src: ['./assets/Sound-Effect.mp3'],
     preload: true,
-  });
+});
 
-  // Function to play sounds with a delay
-  function playSounds() {
+/**
+ * Plays the start sound immediately, and the time-up sound
+ * after a 30-second delay.
+ */
+function playSounds() {
     sound1.play(); // Play the first sound immediately
 
     // Play the second sound after 30 seconds
     setTimeout(() => {
-      sound2.play();
+        sound2.play();
     }, 30000);
-  }
- 
-  // Trigger the function on button click
-  document.querySelector('.startButton').addEventListener('click', playSounds);
+}
+
+// Trigger the function on button click
+document.querySelector('.startButton').addEventListener('click', playSounds);
 
 // Trigger the function on button click
 document.querySelector('.restart').addEventListener('click', playSounds);
- 
